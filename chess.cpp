@@ -4,10 +4,18 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+int main()
+{
 
- 
-cout<<"8 r n b q k b n r\n7 p p p p p p p p\n6\n5\n4\n3\n2 P P P P P P P P\n1 R N B Q K B N R\n  a b c d e f g h "<<endl;
- 
+    cout << "8 r n b q k b n r" << endl;
+    cout << "7 p p p p p p p p" << endl;
+    cout << "6" << endl;
+    cout << "5" << endl;
+    cout << "4" << endl;
+    cout << "3" << endl;
+    cout << "2 P P P P P P P P" << endl;
+    cout << "1 R N B Q K B N R" << endl;
+    cout << "  a b c d e f g h " << endl;
+
     return 0;
 }
