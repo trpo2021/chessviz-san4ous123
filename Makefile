@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 APP_NAME = chessviz
 LIB_NAME = libchessviz
 
@@ -44,3 +45,8 @@ clean:
 	$(RM) $(BIN_DIR)/$(APP_NAME) 
 	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
 	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
+=======
+chess:	 chess.cpp
+	g++ -o chess -Wall -Werror chess.cpp
+	./chess
+>>>>>>> c7ff4797fe14da0db2b3144bda343916cb5d78cf
