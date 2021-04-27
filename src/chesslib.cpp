@@ -1,6 +1,8 @@
 #include <chesslib.hpp>
 
-void init_desk(char* desk[8])
+#include <iostream>
+
+void init_desk(char desk[8][8])
 {
     desk[0][0] = 'r';
     desk[0][1] = 'n';
@@ -27,4 +29,26 @@ void init_desk(char* desk[8])
     desk[7][5] = 'B';
     desk[7][6] = 'N';
     desk[7][7] = 'R';
+}
+
+void print_desk(char desk[8][8])
+{
+    const char v_nav[9] = "abcdefgh";
+
+    for (int i = 0; i < 8; i++) {
+        std::cout << v_nav[i] << " ";
+
+        for (int j = 0; j < 8; j++)
+            std::cout << desk[i][j] << " ";
+
+        std::cout << std::endl;
+    }
+
+    std::cout << "  ";
+
+    for (int i = 1; i < 9; i++) {
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;
 }
