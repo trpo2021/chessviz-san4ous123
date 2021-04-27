@@ -89,12 +89,21 @@ TEST(error, is_existing_range)
     EXPECT_FALSE(exp_false);
 }
 
-// TEST(chessboard, init_desk)
-// {
-//     // Arrange
-//     // Act
-//     // Assert
-// }
+TEST(error, err_massage)
+{
+    // Arrange
+    const string exp_1 = "unexisting range";
+    const string exp_2 = "undefined error";
+    string real_1;
+    string real_2;
+    // Act
+    real_1 = err_massage(1);
+    real_2 = err_massage(2);
+
+    // Assert
+    EXPECT_EQ(exp_1, real_1);
+    EXPECT_EQ(exp_2, real_2);
+}
 
 // TEST(chessboard, init_desk)
 // {
