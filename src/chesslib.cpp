@@ -1,7 +1,5 @@
 #include <chesslib.hpp>
 
-#include <iostream>
-
 void init_desk(char desk[8][8])
 {
     desk[0][0] = 'r';
@@ -51,4 +49,34 @@ void print_desk(char desk[8][8])
     }
 
     std::cout << std::endl;
+}
+
+Step interpret_notation(string notation)
+{
+    Step step;
+    if (notation != "0-0-0" && notation != "0-0") {
+        if (string("KQRBN").find(notation[0]) == 1)
+            step.piece = notation[0];
+        else {
+            step.piece = 'P';
+            notation.insert(0, "P");
+        }
+    }
+
+    step.first_node.first = 7 - ((int)notation[2] - 49);
+    step.first_node.second = (int)notation[1] - 97;
+
+    switch (notation[3]) {
+    case '-':
+        step.type_move = QuietMove;
+        break;
+    case 'x':
+        step.type_move = Take;
+        break;
+    }
+
+    step.second_node.first = 7 - ((int)notation[5] - 49);
+    step.second_node.second = (int)notation[4] - 97;
+
+    return step;
 }
