@@ -4,12 +4,18 @@ using namespace std;
 
 int main()
 {
+    //Шахматная доска
     char chess_desk[8][8];
     init_desk(chess_desk);
+
+    //Временные переменные
     Step temp_step;
     string notation;
+
+    //Список нотаций
     list<string> notations;
 
+    //Заполняю список нотациями пока не встречу #(мат)
     cin >> notation;
     while (true) {
         cin >> notation;
@@ -31,6 +37,10 @@ int main()
     int i = 0;
     int cod_err;
 
+    //Для каждой нотации из списка:
+    //-Расшифровываю
+    //-Проверяю на ошибки
+    //-Если их нет выполняю
     for (auto it = notations.begin(); it != notations.end(); ++it, i++) {
         temp_step = interpret_notation(*it);
 
