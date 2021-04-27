@@ -12,8 +12,6 @@ struct Step {
     char piece;
     DeskCoord first_node;
     DeskCoord second_node;
-    TypeMove type_move;
-    char transform_piece;
 };
 
 Step interpret_notation(string notation);

@@ -66,14 +66,6 @@ Step interpret_notation(string notation)
     step.first_node.first = 7 - ((int)notation[2] - 49);
     step.first_node.second = ((int)notation[1] - 97);
 
-    switch (notation[3]) {
-    case '-':
-        step.type_move = QuietMove;
-        break;
-    case 'x':
-        step.type_move = Take;
-        break;
-    }
     step.second_node.first = 7 - ((int)notation[5] - 49);
     step.second_node.second = (int)notation[4] - 97;
 
