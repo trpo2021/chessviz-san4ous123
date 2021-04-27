@@ -56,12 +56,20 @@ TEST(step, interpret_notation)
     EXPECT_EQ(step_pawn.piece, exp_pawn.piece);
 }
 
-// TEST(chessboard, init_desk)
-// {
-//     // Arrange
-//     // Act
-//     // Assert
-// }
+TEST(step, do_step)
+{
+    // Arrange
+    Step step;
+    step = interpret_notation("e2-e4");
+    char desk[8][8];
+    init_desk(desk);
+    // Act
+    do_step(desk, step);
+
+    // Assert
+    EXPECT_EQ(desk[6][4], ' ');
+    EXPECT_EQ(desk[4][4], 'P');
+}
 
 // TEST(chessboard, init_desk)
 // {
