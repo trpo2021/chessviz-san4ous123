@@ -71,6 +71,31 @@ TEST(step, do_step)
     EXPECT_EQ(desk[4][4], 'P');
 }
 
+TEST(error, is_existing_range)
+{
+    // Arrange
+    Step true_step, false_step;
+    true_step = interpret_notation("e2-e9");
+    false_step = interpret_notation("e2-e4");
+    bool exp_true;
+    bool exp_false;
+
+    // Act
+    exp_true = is_existing_range(true_step);
+    exp_false = is_existing_range(false_step);
+
+    // Assert
+    EXPECT_TRUE(exp_true);
+    EXPECT_FALSE(exp_false);
+}
+
+// TEST(chessboard, init_desk)
+// {
+//     // Arrange
+//     // Act
+//     // Assert
+// }
+
 // TEST(chessboard, init_desk)
 // {
 //     // Arrange

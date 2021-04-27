@@ -83,12 +83,12 @@ void do_step(char desk[8][8], Step step)
 
 int check_step(char desk[8][8], Step step)
 {
-    if (is_existing_range(desk, step))
+    if (is_existing_range(step))
         return 1;
     return 0;
 }
 
-bool is_existing_range(char desk[8][8], Step step)
+bool is_existing_range(Step step)
 {
     bool temp = step.first_node.first >= 0 && step.first_node.first < 8;
     temp = temp && step.first_node.second >= 0 && step.first_node.second < 8;
