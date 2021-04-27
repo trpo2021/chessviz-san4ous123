@@ -34,7 +34,7 @@ void print_desk(char desk[8][8])
     const char v_nav[9] = "abcdefgh";
 
     for (int i = 0; i < 8; i++) {
-        std::cout << 7 - i << " ";
+        std::cout << 8 - i << " ";
 
         for (int j = 0; j < 8; j++)
             std::cout << desk[i][j] << " ";
@@ -87,4 +87,31 @@ void do_step(char desk[8][8], Step step)
 
     desk[second.first][second.second] = desk[first.first][first.second];
     desk[first.first][first.second] = ' ';
+}
+
+int check_step(char desk[8][8], Step step)
+{
+    if (is_existing_range(desk, step))
+        return 1;
+    return 0;
+}
+
+bool is_existing_range(char desk[8][8], Step step)
+{
+    bool temp = step.first_node.first >= 0 && step.first_node.first < 8;
+    temp = temp && step.first_node.second >= 0 && step.first_node.second < 8;
+    temp = temp && step.second_node.first >= 0 && step.second_node.first < 8;
+    temp = temp && step.second_node.second >= 0 && step.second_node.second < 8;
+    return !temp;
+}
+
+string err_massage(int cod_err)
+{
+    switch (cod_err) {
+    case 1:
+        return "unexisting range";
+    default:
+        return "undefined error";
+    }
+    return "undefined error";
 }

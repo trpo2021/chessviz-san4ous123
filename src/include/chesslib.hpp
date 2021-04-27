@@ -23,3 +23,9 @@ void init_desk(char desk[8][8]);
 void do_step(char desk[8][8], Step step);
 
 void print_desk(char desk[8][8]);
+
+int check_step(char desk[8][8], Step step);
+
+bool is_existing_range(char desk[8][8], Step step);
+
+string err_massage(int cod_err);
