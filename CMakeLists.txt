@@ -46,6 +46,6 @@ chesslib
 
 #Указание папку с заголовками
 include_directories(
-${PSRC}/include
+src/include
 gtest/googletest/include/gtest
 )
