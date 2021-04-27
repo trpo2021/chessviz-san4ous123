@@ -105,9 +105,21 @@ TEST(error, err_massage)
     EXPECT_EQ(exp_2, real_2);
 }
 
-// TEST(chessboard, init_desk)
-// {
-//     // Arrange
-//     // Act
-//     // Assert
-// }
+TEST(error, check_step)
+{
+    // Arrange
+    Step true_step, false_step;
+    true_step = interpret_notation("e2-e4");
+    false_step = interpret_notation("e2-e9");
+    char desk[8][8];
+    init_desk(desk);
+    int err_cod_true;
+    int err_cod_false;
+    // Act
+    err_cod_true = check_step(desk, true_step);
+    err_cod_false = check_step(desk, false_step);
+
+    // Assert
+    EXPECT_EQ(err_cod_true, 0);
+    EXPECT_EQ(err_cod_false, 1);
+}
