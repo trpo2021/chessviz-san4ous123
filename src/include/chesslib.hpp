@@ -20,4 +20,6 @@ Step interpret_notation(string notation);
 
 void init_desk(char desk[8][8]);
 
+void do_step(char desk[8][8], Step step);
+
 void print_desk(char desk[8][8]);

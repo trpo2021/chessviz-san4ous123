@@ -34,7 +34,7 @@ void print_desk(char desk[8][8])
     const char v_nav[9] = "abcdefgh";
 
     for (int i = 0; i < 8; i++) {
-        std::cout << v_nav[i] << " ";
+        std::cout << 7 - i << " ";
 
         for (int j = 0; j < 8; j++)
             std::cout << desk[i][j] << " ";
@@ -44,8 +44,8 @@ void print_desk(char desk[8][8])
 
     std::cout << "  ";
 
-    for (int i = 1; i < 9; i++) {
-        std::cout << i << " ";
+    for (int i = 0; i < 8; i++) {
+        std::cout << v_nav[i] << " ";
     }
 
     std::cout << std::endl;
@@ -54,17 +54,17 @@ void print_desk(char desk[8][8])
 Step interpret_notation(string notation)
 {
     Step step;
+
     if (notation != "0-0-0" && notation != "0-0") {
-        if (string("KQRBN").find(notation[0]) == 1)
+        if (string("KQRBN").find(notation[0]) != -1)
             step.piece = notation[0];
         else {
             step.piece = 'P';
             notation.insert(0, "P");
         }
     }
-
     step.first_node.first = 7 - ((int)notation[2] - 49);
-    step.first_node.second = (int)notation[1] - 97;
+    step.first_node.second = ((int)notation[1] - 97);
 
     switch (notation[3]) {
     case '-':
@@ -74,9 +74,17 @@ Step interpret_notation(string notation)
         step.type_move = Take;
         break;
     }
-
     step.second_node.first = 7 - ((int)notation[5] - 49);
     step.second_node.second = (int)notation[4] - 97;
 
     return step;
+}
+
+void do_step(char desk[8][8], Step step)
+{
+    DeskCoord first = step.first_node;
+    DeskCoord second = step.second_node;
+
+    desk[second.first][second.second] = desk[first.first][first.second];
+    desk[first.first][first.second] = ' ';
 }
